@@ -1,0 +1,239 @@
+:root {
+    --light-color: #f2f2f2;
+    --grey-color: #898890;
+    --dark-color: #615568;
+
+    --red: #cc0003;
+    --orange: #e64700;
+    --yellow: #e6bd00;
+}
+
+@font-face {
+    font-family: "barricada";
+    src: url("../assets/fonts/BarricadaW01Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "rocGrotesk";
+    src: url("../assets/fonts/RocGrotesk.ttf") format("truetype");
+}
+
+body {
+    font-family: "rocGrotesk";
+    overflow-x: hidden;
+}
+
+body::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-color: var(--light-color);
+}
+
+body::-webkit-scrollbar {
+    width: 12px;
+    background-color: var(--light-color);
+}
+
+body::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: var(--yellow);
+    transition: all 0.2s ease-in-out;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    border-radius: 10px;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: var(--orange);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+.navbar-brand {
+    font-family: "barricada";
+    color: var(--orange);
+}
+
+nav {
+    background-color: var(--red);
+    color: var(--light-color);
+    text-decoration: none;
+    justify-content: space-between !important;
+    height: 50px;
+    padding: 0.5rem 3rem !important;
+}
+
+nav a {
+    color: var(--light-color) !important;
+}
+
+nav .top-right a {
+    transition: all 0.2s ease-in-out;
+    padding: 5px;
+    border-radius: 2px;
+    border: 2px solid var(--red);
+}
+
+nav a img {
+    height: 40px;
+    padding-right: 5px;
+}
+
+nav .top-right a:hover {
+    text-decoration: none;
+    cursor: pointer;
+    background: var(--yellow);
+    color: var(--red);
+    border: 3px solid var(--orange);
+}
+
+.top-right a {
+    margin-left: 20px;
+}
+
+/* HOME  */
+
+.home-section-1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.red {
+    background: var(--red);
+    width: 100%;
+    height: 100vh;
+    padding: 30px;
+    padding-bottom: 50px;
+}
+
+.orange {
+    background: var(--orange);
+    width: 100%;
+    height: 100%;
+    padding: 30px;
+}
+
+.yellow {
+    background: var(--yellow);
+    width: 100%;
+    height: 100%;
+    padding: 30px;
+}
+
+.content-home {
+    background: var(--light-color);
+    width: 100%;
+    height: 100%;
+    padding: 30px;
+    margin: 0 !important;
+}
+
+.content-home div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content-home h1 {
+    color: var(--dark-color);
+    font-size: 5rem;
+}
+
+.content-home div img {
+    width: 60%;
+    align-self: center;
+    justify-self: center;
+}
+
+.red-banner {
+    background: var(--red);
+    padding: 10px 0;
+    width: 100%;
+}
+
+.red-banner img {
+    width: 100%;
+}
+
+/* LOGIN  */
+.container-lines {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    margin: 0;
+}
+
+.red-line {
+    background: var(--red);
+    height: 100%;
+    width: 20px;
+    color: var(--red);
+    padding: 40vh 0;
+}
+.orange-line {
+    background: var(--orange);
+    height: 100%;
+    width: 20px;
+    color: var(--orange);
+    padding: 40vh 0;
+}
+.yellow-line {
+    background: var(--yellow);
+    height: 100%;
+    width: 20px;
+    color: var(--yellow);
+    padding: 40vh 0;
+}
+
+.card{
+    border: 5px solid var(--orange);
+    background: var(--light-color);
+    border-radius: 30px;
+}
+
+.btn-primary{
+    background:var(--orange);
+    color:var(--light-color);
+    border:2px solid var(--yellow);
+}
+.btn-primary:hover{
+    background:var(--yellow);
+    color:var(--light-color);
+    border:2px solid var(--yellow);
+}
+
+.btn-link{
+    color:var(--orange);
+}
+
+.btn-link:hover{
+    color:var(--yellow);
+}
+
+/* FOOTER  */
+
+footer {
+    background: var(--red);
+    color: var(--light-color);
+    padding: 10px 0;
+}
+
+footer img {
+    height: 50px;
+}
+
+footer a {
+    color: var(--light-color);
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+}
+
+footer a:hover {
+    color: var(--yellow);
+    cursor: pointer;
+}
