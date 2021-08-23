@@ -21,6 +21,7 @@
 body {
     font-family: "rocGrotesk";
     overflow-x: hidden;
+    background: var(--light-color);
 }
 
 body::-webkit-scrollbar-track {
@@ -55,6 +56,10 @@ h5,
 .navbar-brand {
     font-family: "barricada";
     color: var(--orange);
+}
+
+.light-title {
+    color: var(--light-color);
 }
 
 nav {
@@ -92,6 +97,42 @@ nav .top-right a:hover {
 
 .top-right a {
     margin-left: 20px;
+}
+
+.btn-primary {
+    background: var(--orange);
+    color: var(--light-color);
+    border: 2px solid var(--yellow);
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-primary:hover {
+    background: var(--yellow);
+    color: var(--light-color);
+    border: 2px solid var(--yellow);
+}
+
+.btn-secondary {
+    background: var(--orange);
+    color: var(--light-color);
+    border: 2px solid var(--red);
+    padding: 5px 20px;
+    border-radius: 5px;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-secondary:hover {
+    background: var(--red);
+    border: 2px solid var(--red);
+    text-decoration: none;
+}
+
+.btn-link {
+    color: var(--orange);
+}
+
+.btn-link:hover {
+    color: var(--yellow);
 }
 
 /* HOME  */
@@ -190,29 +231,30 @@ nav .top-right a:hover {
     padding: 40vh 0;
 }
 
-.card{
+.card {
     border: 5px solid var(--orange);
     background: var(--light-color);
     border-radius: 30px;
 }
 
-.btn-primary{
-    background:var(--orange);
-    color:var(--light-color);
-    border:2px solid var(--yellow);
-}
-.btn-primary:hover{
-    background:var(--yellow);
-    color:var(--light-color);
-    border:2px solid var(--yellow);
+/* RECIPES  */
+
+.banner {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 3rem;
+    background: var(--yellow);
 }
 
-.btn-link{
-    color:var(--orange);
-}
-
-.btn-link:hover{
-    color:var(--yellow);
+.recipe-card{
+    height:20vh;
+    border: 3px solid var(--orange);
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
 }
 
 /* FOOTER  */
