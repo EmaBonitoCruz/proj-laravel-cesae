@@ -15,7 +15,6 @@
 
         @component('components.recipeCardHighlight')    
         @endcomponent
-
         @component('components.recipeCardHighlight')    
         @endcomponent
 
@@ -25,8 +24,20 @@
         <img src="{{ URL::to('/assets/img/cutlery-banner.png') }}" >
     </div>    
 
-    <div class="row">
-        
+    <div class="row-recipes" style="padding:1rem 2rem">
+        @component('components.recipeCard')    
+        @endcomponent
+        @component('components.recipeCard')    
+        @endcomponent
+        @component('components.recipeCard')    
+        @endcomponent
+
+        @component('components.recipeCard')    
+        @endcomponent
+        @component('components.recipeCard')    
+        @endcomponent
+        @component('components.recipeCard')    
+        @endcomponent
     </div>
 
 </div>
