@@ -1,4 +1,4 @@
-<a class="col recipe-card highlighted">
+<a href="{{ url('/home') }}" class="col recipe-card highlighted">
     <div class="card-lines">
         <div class="red-line"></div>
         <div class="orange-line"></div>
