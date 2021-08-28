@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,5 +20,12 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/profile', 'HomeController@profile')->name('profile');
+Route::get('/home', 'RecipeController@index')->name('home');
+Route::get('/profile', 'RecipeController@profile')->name('profile');
+
+Route::get('/home/create', 'RecipeController@create');
+Route::post('/home', 'RecipeController@store');
+Route::get('/home/{recipe}', 'RecipeController@show');
+Route::get('/home/{recipe}/edit', 'RecipeController@edit');
+Route::put('/home/{recipe}', 'RecipeController@update');
+Route::delete('/home/{recipe}', 'RecipeController@destroy');

@@ -8,11 +8,16 @@
     </div>
 
     <div class="row" style="padding: 2rem 3rem;">
+        
+        {{$ingredients}}
+        
         <h3>HIGHLIGHTED RECIPES</h3>
     </div>
 
     <div class="row" style="padding:1rem 3rem">
 
+
+      
         @component('components.recipeCardHighlight')    
         @endcomponent
         @component('components.recipeCardHighlight')    
@@ -25,19 +30,17 @@
     </div>    
 
     <div class="row-recipes" style="padding:1rem 2rem">
-        @component('components.recipeCard')    
-        @endcomponent
-        @component('components.recipeCard')    
-        @endcomponent
-        @component('components.recipeCard')    
-        @endcomponent
 
-        @component('components.recipeCard')    
-        @endcomponent
-        @component('components.recipeCard')    
-        @endcomponent
-        @component('components.recipeCard')    
-        @endcomponent
+        @foreach ($recipes as $recipe)
+            @component('components.recipeCard', [
+                'slug'        => $recipe->id,
+                'title'       => $recipe->title,
+                'description' => $recipe->description
+            ])    
+            @endcomponent
+        
+        @endforeach
+
     </div>
 
 </div>
