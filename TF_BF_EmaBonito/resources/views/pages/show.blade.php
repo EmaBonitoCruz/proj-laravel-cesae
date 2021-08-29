@@ -18,22 +18,11 @@
             <div class="scroll">
                 <h3>Ingredients</h3>
                 <ul>
-                    <li>Lorem, ipsum dolor.</li>
-                    <li>Lorem, ipsum dolor.</li>
-                    <li>Lorem, ipsum dolor.</li>
-                    <li>Lorem, ipsum dolor.</li>
-                    <li>Lorem, ipsum dolor.</li>
-                    <li>Lorem, ipsum dolor.</li>
-                    <li>Lorem, ipsum dolor.</li>
-                    <li>Lorem, ipsum dolor.</li>
-                    <li>Lorem, ipsum dolor.</li>
-                    <li>Lorem, ipsum dolor.</li>
-                    <li>Lorem, ipsum dolor.</li>
-                    <li>Lorem, ipsum dolor.</li>
-                    <li>Lorem, ipsum dolor.</li>
-                    <li>Lorem, ipsum dolor.</li>
-                    <li>Lorem, ipsum dolor.</li>
-                    <li>Lorem, ipsum dolor.</li>
+                    @foreach ($ingredients as $ingredient)
+                        
+                    <li> {{$ingredient->ingredient}}</li>
+                    @endforeach
+
                 </ul>
             </div>
   
@@ -51,13 +40,10 @@
             <div class="scroll">
                 <h3>Instructions</h3>
                 <ol>
-                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi maxime labore ad architecto beatae esse et quis sint dignissimos minima obcaecati accusamus, modi officiis alias delectus laudantium vero quam amet.</li>
-                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi maxime labore ad architecto beatae esse et quis sint dignissimos minima obcaecati accusamus, modi officiis alias delectus laudantium vero quam amet.</li>
-                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi maxime labore ad architecto beatae esse et quis sint dignissimos minima obcaecati accusamus, modi officiis alias delectus laudantium vero quam amet.</li>
-                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi maxime labore ad architecto beatae esse et quis sint dignissimos minima obcaecati accusamus, modi officiis alias delectus laudantium vero quam amet.</li>
-                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi maxime labore ad architecto beatae esse et quis sint dignissimos minima obcaecati accusamus, modi officiis alias delectus laudantium vero quam amet.</li>
-                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi maxime labore ad architecto beatae esse et quis sint dignissimos minima obcaecati accusamus, modi officiis alias delectus laudantium vero quam amet.</li>
-                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi maxime labore ad architecto beatae esse et quis sint dignissimos minima obcaecati accusamus, modi officiis alias delectus laudantium vero quam amet.</li>
+                    @foreach ($instructions as $instruction)
+                        
+                    <li> {{$instruction->instruction}}</li>
+                    @endforeach
                 </ol>
 
             </div>

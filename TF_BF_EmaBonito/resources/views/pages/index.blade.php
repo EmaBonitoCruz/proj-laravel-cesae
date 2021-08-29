@@ -4,13 +4,18 @@
 <div class="container-fluid" style="padding:0; margin:0">
     <div class="banner">
         <h1 class="light-title">Recipes</h1>
-        <a href="" class="btn-secondary">add recipe</a>
+        <a href="{{ url('home/create') }}" class="btn-secondary">add recipe</a>
     </div>
 
-    <div class="row" style="padding: 2rem 3rem;">
-        
-        {{$ingredients}}
-        
+    @if (session('status'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+    {{ session('status') }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+    </button>
+    </div>
+    @endif
+    <div class="row" style="padding: 2rem 3rem;">        
         <h3>HIGHLIGHTED RECIPES</h3>
     </div>
 

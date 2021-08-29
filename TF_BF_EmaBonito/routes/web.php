@@ -29,3 +29,6 @@ Route::get('/home/{recipe}', 'RecipeController@show');
 Route::get('/home/{recipe}/edit', 'RecipeController@edit');
 Route::put('/home/{recipe}', 'RecipeController@update');
 Route::delete('/home/{recipe}', 'RecipeController@destroy');
+
+Route::get('/home/ingredient/create', 'IngredientController@create');
+Route::post('/home/ingredient/store', 'IngredientController@store');

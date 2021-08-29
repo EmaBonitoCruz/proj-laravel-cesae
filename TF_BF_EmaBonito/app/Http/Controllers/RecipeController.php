@@ -6,6 +6,9 @@ use App\Recipe;
 use App\Ingredient;
 use Illuminate\Support\Facades\DB;
 use App\Instruction;
+use Illuminate\Support\Facades\Auth;
+
+
 use Illuminate\Http\Request;
 
 class RecipeController extends Controller
@@ -17,18 +20,17 @@ class RecipeController extends Controller
      */
     public function index()
     {
-        $ing = new Ingredient();
 
+        $id = Auth::id();
+        
         $recipes = Recipe::with('ingredients')
-        ->where('user_id','6')
+        ->where('user_id',$id)
         ->orderBy('id','desc')
         ->get();
 
-        $ingredients = DB::table($ing -> getTable())->where('recipe_id', '6')->get();
 
         return view('pages.index',[
             'recipes' => $recipes,
-            'ingredients' => $ingredients
         ]);
 
     }
@@ -40,7 +42,9 @@ class RecipeController extends Controller
      */
     public function create()
     {
-        //
+        $id = Auth::id();
+
+        return view('pages.create',['user_id' => $id]);
     }
 
     /**
@@ -51,7 +55,33 @@ class RecipeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // $this->validate($request, [
+        //     'title' => 'required',
+        //     'description' => 'required',
+        //     'user_id' => 'required'
+        //     ]);
+
+        //     Recipe::create($request->all());
+
+        $input = $request->all();
+        
+        Recipe::create($input);
+
+        $id = Auth::id();
+
+        $recipe = DB::table('recipes')->latest('created_at')->first();
+          
+        // $ing = new Ingredient();
+        $ingredients = DB::table('ingredients')->where('recipe_id', $recipe->id)->get();
+     
+
+        return view('pages.createIngredients',[
+            'user_id'     => $id,
+            'recipe_id'   => $recipe -> id,
+            'ingredients' => $ingredients
+
+        ]);
+        
     }
 
     /**
@@ -62,13 +92,19 @@ class RecipeController extends Controller
      */
     public function show(Recipe $recipe)
     {
-        // $ingredients = Ingredient::with('recipe')->get();
-        // $instructions = Instruction::with('recipe')->get();
+  
+        
+        $ing = new Ingredient();
+        $ingredients = DB::table($ing -> getTable())->where('recipe_id', $recipe->id)->get();
+        
+        $inst = new Instruction();
+        $instructions = DB::table($inst -> getTable())->where('recipe_id', $recipe->id)->get();
+
         
         return view('pages.show', [
             'recipe' => $recipe,
-            // 'ingredients' => $ingredients,
-            // 'instructions' =>$instructions
+            'ingredients' => $ingredients,
+            'instructions' =>$instructions
         ]);
         
     }

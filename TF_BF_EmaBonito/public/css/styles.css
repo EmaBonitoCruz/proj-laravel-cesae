@@ -371,6 +371,25 @@ nav .top-right a:hover {
     margin-left: -1em
 } */
 
+/* CREATE RECIPE  */
+
+.form-show-preview{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    color:var(--grey-color);
+    margin: 1rem;
+}
+
+.form-show-preview p{
+    margin-right: 1rem;
+}
+
+.from-group{
+    margin-top:1rem !important;
+}
+
+
 /* FOOTER  */
 
 footer {

@@ -11,4 +11,9 @@ class Ingredient extends Model
     public function ingredient(){
         return $this->belongsTo(Recipe::class);
     }
+
+    protected $fillable = [
+        'instruction',
+        'recipe_id'
+        ];
 }

@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Ingredient;
+use App\Recipe;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+
+
 use Illuminate\Http\Request;
 
 class IngredientController extends Controller
@@ -35,7 +40,23 @@ class IngredientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+        
+        Ingredient::create($input);
+
+        $id = Auth::id();
+
+        $recipe = DB::table('recipes')->latest('created_at')->first();
+          
+        // $ing = new Ingredient();
+        $ingredients = DB::table('ingredients')->where('recipe_id', $recipe->id)->get();
+     
+
+        return view('pages.createIngredients',[
+            'user_id'     => $id,
+            'recipe_id'   => $recipe -> id,
+            'ingredients' => $ingredients
+        ]);
     }
 
     /**
