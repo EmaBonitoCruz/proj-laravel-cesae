@@ -21,19 +21,26 @@ class RecipeController extends Controller
     public function index()
     {
 
-        $id = Auth::id();
-        
-        $recipes = Recipe::with('ingredients')
-        ->where('user_id',$id)
-        ->orderBy('id','desc')
-        ->get();
+        if (!Auth::check()) {
+            // The user is not logged in
+            return view('welcome');
+        }else{
 
-
-        return view('pages.index',[
-            'recipes' => $recipes,
-        ]);
+            $id = Auth::id();
+            
+            $recipes = Recipe::with('ingredients')
+            ->where('user_id',$id)
+            ->orderBy('id','desc')
+            ->get();
+    
+    
+            return view('pages.index',[
+                'recipes' => $recipes,
+            ]);
+        }
 
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -55,14 +62,6 @@ class RecipeController extends Controller
      */
     public function store(Request $request)
     {
-        // $this->validate($request, [
-        //     'title' => 'required',
-        //     'description' => 'required',
-        //     'user_id' => 'required'
-        //     ]);
-
-        //     Recipe::create($request->all());
-
         $input = $request->all();
         
         Recipe::create($input);
@@ -71,7 +70,6 @@ class RecipeController extends Controller
 
         $recipe = DB::table('recipes')->latest('created_at')->first();
           
-        // $ing = new Ingredient();
         $ingredients = DB::table('ingredients')->where('recipe_id', $recipe->id)->get();
      
 

@@ -21,7 +21,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'RecipeController@index')->name('home');
-Route::get('/profile', 'RecipeController@profile')->name('profile');
+Route::get('/profile', 'HomeController@profile')->name('profile');
 
 Route::get('/home/create', 'RecipeController@create');
 Route::post('/home', 'RecipeController@store');
@@ -30,5 +30,7 @@ Route::get('/home/{recipe}/edit', 'RecipeController@edit');
 Route::put('/home/{recipe}', 'RecipeController@update');
 Route::delete('/home/{recipe}', 'RecipeController@destroy');
 
-Route::get('/home/ingredient/create', 'IngredientController@create');
 Route::post('/home/ingredient/store', 'IngredientController@store');
+
+Route::get('/home/instruction/create', 'InstructionController@create');
+Route::post('/home/instruction/store', 'InstructionController@store');

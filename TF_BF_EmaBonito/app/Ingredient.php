@@ -13,7 +13,7 @@ class Ingredient extends Model
     }
 
     protected $fillable = [
-        'instruction',
+        'ingredient',
         'recipe_id'
         ];
 }

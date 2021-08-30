@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Recipe;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 
 class HomeController extends Controller
@@ -28,8 +29,22 @@ class HomeController extends Controller
 
         return view('pages.index');
     }
+
     public function profile()
     {
-        return view('pages.profile');
+
+        $id = Auth::id();
+        $user = Auth::user();
+        
+        $recipes = DB::table('recipes')->where('user_id', $id)->get();
+
+        
+        return view('pages.profile',[
+            'user_id'  => $id,
+            'username' => $user->name,
+            'email'    => $user->email,
+            'recipes'  => $recipes
+        ]);
+
     }
 }

@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Instruction;
+
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+
+
 use Illuminate\Http\Request;
 
 class InstructionController extends Controller
@@ -24,7 +29,15 @@ class InstructionController extends Controller
      */
     public function create()
     {
-        //
+        $recipe = DB::table('recipes')->latest('created_at')->first();
+
+        $instructions = DB::table('instructions')->where('recipe_id', $recipe->id)->get();
+
+        return view('pages.createInstructions',[
+            'recipe_id'   => $recipe -> id,
+            'instructions' => $instructions
+
+        ]);
     }
 
     /**
@@ -35,7 +48,18 @@ class InstructionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+        
+        Instruction::create($input);
+
+        $recipe = DB::table('recipes')->latest('created_at')->first();   
+        $instructions = DB::table('instructions')->where('recipe_id', $recipe->id)->get();
+     
+
+        return view('pages.createInstructions',[
+            'recipe_id'   => $recipe -> id,
+            'instructions' => $instructions
+        ]);
     }
 
     /**

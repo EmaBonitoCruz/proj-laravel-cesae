@@ -44,16 +44,11 @@ class IngredientController extends Controller
         
         Ingredient::create($input);
 
-        $id = Auth::id();
-
-        $recipe = DB::table('recipes')->latest('created_at')->first();
-          
-        // $ing = new Ingredient();
+        $recipe = DB::table('recipes')->latest('created_at')->first();   
         $ingredients = DB::table('ingredients')->where('recipe_id', $recipe->id)->get();
      
 
         return view('pages.createIngredients',[
-            'user_id'     => $id,
             'recipe_id'   => $recipe -> id,
             'ingredients' => $ingredients
         ]);
