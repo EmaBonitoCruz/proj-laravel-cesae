@@ -16,10 +16,31 @@
                 </div>
             </div>
         </div>
+</div>
+<div class="red-banner">
+    <img src="{{ URL::to('/assets/img/cutlery-banner.png') }}" >
+</div>
+<div class="container-fluid" style="height: 75vh; background:var(--yellow); padding:2rem; display:flex;flex-direction:column; justify-content:space-around;">
+    <h1 class="text-center title-home">How it works</h1>
+    <div class="row">
+        @component('components.cardHome',[
+            'text' => 'Register to start simplifying your meal planning',
+            'img'  => 'home-icon-1.png'
+        ])
+        @endcomponent
+        @component('components.cardHome',[
+            'text' => 'Add your favourite foods to your virtual recipe book',
+            'img'  => 'home-icon-2.png'
+        ])
+        @endcomponent
+        @component('components.cardHome',[
+            'text' => 'Keep track of everything in your profile page',
+            'img'  => 'home-icon-3.png'
+        ])
+        @endcomponent
     </div>
-    <div class="red-banner">
-        <img src="{{ URL::to('/assets/img/cutlery-banner.png') }}" >
-    </div>
+    <a class="btn-secondary" href="{{ route('register') }}" style="width: 20%;text-align:center; margin:0 auto">register to start</a>
+</div>
 @stop
 
 

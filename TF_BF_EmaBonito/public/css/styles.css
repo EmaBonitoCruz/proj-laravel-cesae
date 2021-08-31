@@ -209,6 +209,38 @@ nav .top-right a:hover {
     width: 100%;
 }
 
+.title-home{
+    color:var(--light-color);
+    font-size:3rem;
+}
+
+.card-home{
+    border:2px solid var(--orange);
+    height:150px;
+    background:var(--light-color);
+    color:var(--dark-color);
+    margin: 0 2rem ;
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-size:1.2rem;
+    /* position: relative; */
+}
+
+.card-home img{
+    height:100px;
+    margin-top:-60px;
+    border-radius: 100px;
+    box-shadow: 0 3px 5px var(--yellow);
+}
+
+.card-home p{
+    padding-top: 20px;
+}
+
 /* LOGIN  */
 .container-lines {
     height: 100%;
