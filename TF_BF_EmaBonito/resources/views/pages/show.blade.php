@@ -5,7 +5,14 @@
 
     <div class="banner" style="background: var(--light-color)">
         <h1>{{$recipe->title}}</h1>
-        <a href="{{url('/home/'.$recipe->id.'/edit')}}" class="btn-secondary">edit recipe</a>
+        <div style="display: flex; flex-direction:row;align-items:center">
+            <form action="{{url('home/' . $recipe->id)}}" method="POST">
+                @csrf
+                @method('DELETE')
+               <button type="submit" class="btn btn-secondary" style="margin-right:2rem; justify-self:flex-end">delete recipe</button>
+            </form>
+            <a href="{{url('/home/'.$recipe->id.'/edit')}}" class="btn-secondary">edit recipe</a>
+        </div>
     </div>
 
     <div class="recipe-detail-grid">

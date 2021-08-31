@@ -138,7 +138,16 @@ class RecipeController extends Controller
      */
     public function update(Request $request, Recipe $recipe)
     {
-        //
+        $recipe->update($request->all());
+        return redirect('home/'.$recipe->id);
+
+        // $ing = new Ingredient();
+        // $ingredients = DB::table($ing -> getTable())->where('recipe_id', $recipe->id)->get();
+      
+        // return view('pages.editIngredients', [
+        //     'recipe' => $recipe,
+        //     'ingredients' => $ingredients,
+        // ]);
     }
 
     /**
@@ -149,6 +158,11 @@ class RecipeController extends Controller
      */
     public function destroy(Recipe $recipe)
     {
-        //
+        DB::table('ingredients')->where('recipe_id', $recipe->id)->delete();
+        DB::table('instructions')->where('recipe_id', $recipe->id)->delete();
+        
+        Recipe::find($recipe->id)->delete();
+
+        return redirect('home');
     }
 }

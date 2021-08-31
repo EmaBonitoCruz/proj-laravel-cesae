@@ -19,7 +19,7 @@
             @endphp
             @endforeach
             <p> {{$count}} recipes</p>
-            <a href="{{ url('profile/create') }}" class="btn-secondary">Edit Profile</a>
+            <a href="{{ url('profile/'.$user_id.'/edit') }}" class="btn-secondary">Edit Profile</a>
         </div>
     </div>
 </div>

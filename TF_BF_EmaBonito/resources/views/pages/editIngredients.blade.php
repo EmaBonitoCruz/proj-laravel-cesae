@@ -3,22 +3,22 @@
 @section('content')
 
 <div class="container-fluid" style="padding: 2rem 3rem; min-height:80vh">
-    <h1>Add Instructions</h1>
+    <h1>Add Ingredients</h1>
 
-    <form action="{{url('home/instruction/store')}}" method="post">
+    <form action="{{url('home/ingredient/store')}}" method="post">
     @csrf
 
     <div class="form-group">
-        <label for="ingredient">Instruction</label>
+        <label for="ingredient">Ingredients</label>
 
         <div style="display: grid; grid-template-columns: 6fr 1fr; grid-gap:1rem">
             <input 
             type="text"
-             id="instruction" 
-             name="instruction" 
-             autocomplete="Recipe instruction"
+             id="ingredient" 
+             name="ingredient" 
+             autocomplete="Recipe ingredient"
              class="form-control
-             @error('instruction') is-invalid @enderror">
+             @error('ingredient') is-invalid @enderror">
 
              <input value="{{$recipe_id}}" 
              type="hidden"
@@ -28,21 +28,19 @@
              class="form-control"
              @error('recipe_id') is-invalid @enderror">
 
-             <button type="submit" class="btn-secondary">Add Instruction</button>
+             <button type="submit" class="btn-secondary">Add Ingredient</button>
         </div>
     </div>
     </form>
     <div class="form-show-preview">
 
-        <ol>
-            @foreach ($instructions as $instruction)
-                <li>{{$instruction->instruction}}</li>
-            @endforeach
-        </ol>
+        @foreach ($ingredients as $ingredient)
+            <p>{{$ingredient->ingredient}}</p>
+        @endforeach
     </div>
 
 
-    <a href="{{ url('home/'.$recipe_id) }}" class="btn btn-secondary" style="margin-top:2rem; justify-self:flex-end">Finish</a>
+    <a href="{{ url('home/instruction/edit') }}" class="btn btn-secondary" style="margin-top:2rem; justify-self:flex-end">Next</a>
 
 </div>
     

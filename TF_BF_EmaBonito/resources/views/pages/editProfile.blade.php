@@ -8,8 +8,9 @@
     <div class="container-profile">
         <div class="card-profile">
 
-            <form action="{{url('profile')}}" method="post">
+            <form method="post" action="{{url('profile/'.$user_id)}}" >
                 @csrf
+                @method('PUT')
             
                 <div class="from-group">
                     <label for="title">Name</label>
@@ -45,7 +46,7 @@
                 class="form-control"
                 @error('user_id') is-invalid @enderror">
             
-                <button type="submit" class="btn btn-secondary" style="margin-top:2rem; justify-self:flex-end">Next</button>
+                <button type="submit" class="btn btn-secondary" style="margin-top:2rem; justify-self:flex-end">save changes</button>
             
                 </form>
 

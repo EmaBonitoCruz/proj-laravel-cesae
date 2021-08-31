@@ -23,8 +23,8 @@ Auth::routes();
 Route::get('/home', 'RecipeController@index')->name('home');
 
 Route::get('/profile', 'HomeController@profile')->name('profile');
-Route::get('profile/create', 'UserController@create');
-Route::post('profile', 'UserController@store');
+Route::get('profile/{user}/edit', 'UserController@edit');
+Route::put('/profile/{user}', 'UserController@update');
 
 Route::get('/home/create', 'RecipeController@create');
 Route::post('/home', 'RecipeController@store');
@@ -34,6 +34,7 @@ Route::put('/home/{recipe}', 'RecipeController@update');
 Route::delete('/home/{recipe}', 'RecipeController@destroy');
 
 Route::post('/home/ingredient/store', 'IngredientController@store');
+Route::put('/home/{ingredient}', 'IngredientController@update');
 
 Route::get('/home/instruction/create', 'InstructionController@create');
 Route::post('/home/instruction/store', 'InstructionController@store');

@@ -362,15 +362,6 @@ nav .top-right a:hover {
     margin-right: 1rem;
 }
 
-/* 
-.recipe-detail-grid li::before{
-    content: "•";
-    color:var(--orange);
-    display: inline-block; 
-    width: 1em;
-    margin-left: -1em
-} */
-
 /* CREATE RECIPE  */
 
 .form-show-preview{
