@@ -115,7 +115,18 @@ class RecipeController extends Controller
      */
     public function edit(Recipe $recipe)
     {
-        //
+         
+        $ing = new Ingredient();
+        $ingredients = DB::table($ing -> getTable())->where('recipe_id', $recipe->id)->get();
+        
+        $inst = new Instruction();
+        $instructions = DB::table($inst -> getTable())->where('recipe_id', $recipe->id)->get();
+
+        return view('pages.edit', [
+            'recipe' => $recipe,
+            'ingredients' => $ingredients,
+            'instructions' =>$instructions
+        ]);
     }
 
     /**

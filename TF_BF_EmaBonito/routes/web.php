@@ -21,7 +21,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'RecipeController@index')->name('home');
+
 Route::get('/profile', 'HomeController@profile')->name('profile');
+Route::get('profile/create', 'UserController@create');
+Route::post('profile', 'UserController@store');
 
 Route::get('/home/create', 'RecipeController@create');
 Route::post('/home', 'RecipeController@store');

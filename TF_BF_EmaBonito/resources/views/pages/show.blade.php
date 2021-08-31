@@ -5,7 +5,7 @@
 
     <div class="banner" style="background: var(--light-color)">
         <h1>{{$recipe->title}}</h1>
-        <a href="" class="btn-secondary">edit recipe</a>
+        <a href="{{url('/home/'.$recipe->id.'/edit')}}" class="btn-secondary">edit recipe</a>
     </div>
 
     <div class="recipe-detail-grid">
