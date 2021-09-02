@@ -14,20 +14,14 @@
     <div class="row" style="padding:1rem 2rem">
   
         @for ($i = 0; $i < count($recipes); $i++)
-            @if ($i < 1)
+            @if ($i < 2)
                 @component('components.recipeCardHighlight', [
                     'slug'        => $recipes[$i]->id,
                     'title'       => $recipes[$i]->title,
                     'description' => $recipes[$i]->description
                 ])    
                 @endcomponent
-            @elseif($i==1)
-                @component('components.recipeCardHighlight', [
-                    'slug'        => $recipes[$i]->id,
-                    'title'       => $recipes[$i]->title,
-                    'description' => $recipes[$i]->description
-                ])    
-                @endcomponent
+            @elseif($i==2)
                 </div>
                 <div class="red-banner">
                     <img src="{{ URL::to('/assets/img/cutlery-banner.png') }}" >
