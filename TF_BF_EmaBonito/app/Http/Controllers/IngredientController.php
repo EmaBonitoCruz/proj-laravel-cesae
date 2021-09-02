@@ -83,9 +83,20 @@ class IngredientController extends Controller
      * @param  \App\Ingredient  $ingredient
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Ingredient $ingredient)
+    public function update(Request $request)
     {
-        //
+        $input = $request->all();
+        
+        Ingredient::create($input);
+
+        $recipe = DB::table('recipes')->latest('created_at')->first();   
+        $ingredients = DB::table('ingredients')->where('recipe_id', $recipe->id)->get();
+     
+
+        return view('pages.editIngredients',[
+            'recipe_id'   => $recipe -> id,
+            'ingredients' => $ingredients
+        ]);
     }
 
     /**

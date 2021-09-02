@@ -3,7 +3,8 @@
 @section('content')
 
 <div class="container-fluid" style="padding: 2rem 3rem; min-height:80vh">
-    <h1>Add Ingredients</h1>
+    <h1>Edit Ingredients</h1>
+
 
     <form action="{{url('home/ingredient/store')}}" method="post">
     @csrf
@@ -20,11 +21,11 @@
              class="form-control
              @error('ingredient') is-invalid @enderror">
 
-             <input value="{{$recipe_id}}" 
+             <input value="{{$recipe}}" 
              type="hidden"
              id="recipe_id" 
              name="recipe_id" 
-             autocomplete="{{$recipe_id}}"
+             autocomplete="{{$recipe}}"
              class="form-control"
              @error('recipe_id') is-invalid @enderror">
 
@@ -35,7 +36,10 @@
     <div class="form-show-preview">
 
         @foreach ($ingredients as $ingredient)
-            <p>{{$ingredient->ingredient}}</p>
+            <div class="item-box">
+                <p>{{$ingredient->ingredient}}</p>
+                <button type="submit" class="btn-delete">X</button>
+            </div>
         @endforeach
     </div>
 

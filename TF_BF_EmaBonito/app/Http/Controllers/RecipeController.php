@@ -139,15 +139,16 @@ class RecipeController extends Controller
     public function update(Request $request, Recipe $recipe)
     {
         $recipe->update($request->all());
-        return redirect('home/'.$recipe->id);
+        
+        // return redirect('home/'.$recipe->id);
 
-        // $ing = new Ingredient();
-        // $ingredients = DB::table($ing -> getTable())->where('recipe_id', $recipe->id)->get();
+        $ing = new Ingredient();
+        $ingredients = DB::table($ing -> getTable())->where('recipe_id', $recipe->id)->get();
       
-        // return view('pages.editIngredients', [
-        //     'recipe' => $recipe,
-        //     'ingredients' => $ingredients,
-        // ]);
+        return view('pages.editIngredients', [
+            'recipe'      => $recipe->id,
+            'ingredients' => $ingredients,
+        ]);
     }
 
     /**

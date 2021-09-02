@@ -18,7 +18,8 @@
              name="ingredient" 
              autocomplete="Recipe ingredient"
              class="form-control
-             @error('ingredient') is-invalid @enderror">
+             @error('ingredient') is-invalid @enderror"
+             focus>
 
              <input value="{{$recipe_id}}" 
              type="hidden"
