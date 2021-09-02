@@ -1,6 +1,6 @@
 :root {
     --light-color: #f2f2f2;
-    --grey-color: #898890;
+    --grey-color: #b3b2bb;
     --dark-color: #615568;
 
     --red: #cc0003;
@@ -197,6 +197,16 @@ nav .top-right a:hover {
     width: 60%;
     align-self: center;
     justify-self: center;
+    animation: flower 5s infinite linear;
+}
+
+@keyframes flower {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .red-banner {
@@ -209,35 +219,40 @@ nav .top-right a:hover {
     width: 100%;
 }
 
-.title-home{
-    color:var(--light-color);
-    font-size:3rem;
+.title-home {
+    color: var(--light-color);
+    font-size: 3rem;
 }
 
-.card-home{
-    border:2px solid var(--orange);
-    height:150px;
-    background:var(--light-color);
-    color:var(--dark-color);
-    margin: 0 2rem ;
+.card-home {
+    border: 2px solid var(--orange);
+    height: 150px;
+    background: var(--light-color);
+    color: var(--dark-color);
+    margin: 0 2rem;
     border-radius: 50px;
     display: flex;
     flex-direction: column;
     text-align: center;
     align-items: center;
     justify-content: center;
-    font-size:1.2rem;
+    font-size: 1.2rem;
     /* position: relative; */
 }
 
-.card-home img{
-    height:100px;
-    margin-top:-60px;
+.card-home img {
+    height: 100px;
+    margin-top: -60px;
     border-radius: 100px;
     box-shadow: 0 3px 5px var(--yellow);
+    transition: all 0.2s ease-in-out;
 }
 
-.card-home p{
+.card-home img:hover {
+    transform: translateY(-5px);
+}
+
+.card-home p {
     padding-top: 20px;
 }
 
@@ -364,11 +379,12 @@ nav .top-right a:hover {
     display: flex;
     flex-direction: row;
     min-width: 100%;
-    height:65vh;
+    height: 65vh;
     padding-bottom: 3rem;
 }
 
-.recipe-detail-grid ul, .recipe-detail-grid ol {
+.recipe-detail-grid ul,
+.recipe-detail-grid ol {
     /* list-style: none; */
     margin-top: 1.5rem;
     margin-left: 0;
@@ -396,37 +412,61 @@ nav .top-right a:hover {
 
 /* CREATE RECIPE  */
 
-.form-show-preview{
+.form-show-preview {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    color:var(--grey-color);
+    color: var(--grey-color);
     margin: 1rem;
 }
 
-.form-show-preview p{
+.form-show-preview p {
     margin-right: 1rem;
 }
 
-.from-group{
-    margin-top:1rem !important;
+.from-group {
+    margin-top: 1rem !important;
 }
 
+.item-box {
+    display: flex;
+    flex-direction: row;
+    background: var(--grey-color);
+    color: var(--dark-color);
+    align-items: center;
+    margin-right: 5px;
+    border-radius: 10px;
+    overflow: hidden;
+    padding:10px;
+}
+
+.item-box button{
+    height: 100%;
+    background: var(--grey-color);
+    color: var(--red);
+    border:none;
+    padding:0;
+    font-family: "arial";
+}
+
+.item-box p{
+    margin-bottom:0;
+}
 
 /* PROFILE  */
 
-.container-profile{
-    width:100%;
-    height:65vh;
+.container-profile {
+    width: 100%;
+    height: 65vh;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.card-profile{
+.card-profile {
     border: 5px solid var(--orange);
     border-radius: 20px;
-    padding:5rem 8rem;
+    padding: 5rem 8rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -438,7 +478,6 @@ footer {
     background: var(--red);
     color: var(--light-color);
     padding: 10px 0;
-    
 }
 
 footer img {

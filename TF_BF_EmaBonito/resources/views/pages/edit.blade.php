@@ -9,7 +9,7 @@
 
         <div class="banner" style="background: var(--light-color); padding:0">
             <h1>Edit recipe</h1>        
-                <button type="submit" class="btn btn-secondary" style="margin-top:2rem; justify-self:flex-end">next</button>             
+                <button type="submit" class="btn btn-secondary" style="margin-top:2rem; justify-self:flex-end">save changes</button>             
         </div>
 
         <div>
