@@ -34,7 +34,6 @@ Route::put('/home/{recipe}', 'RecipeController@update');
 Route::delete('/home/{recipe}', 'RecipeController@destroy');
 
 Route::post('/home/ingredient/store', 'IngredientController@store');
-Route::put('/home/{ingredient}', 'IngredientController@update');
 
 Route::get('/home/instruction/create', 'InstructionController@create');
 Route::post('/home/instruction/store', 'InstructionController@store');

@@ -197,6 +197,12 @@ nav .top-right a:hover {
     width: 60%;
     align-self: center;
     justify-self: center;
+    animation: flower 5s linear infinite;
+}
+
+@keyframes flower {
+    0%{transform: rotate(0deg);}
+    100%{transform: rotate(360deg);}
 }
 
 .red-banner {
@@ -227,14 +233,19 @@ nav .top-right a:hover {
     align-items: center;
     justify-content: center;
     font-size:1.2rem;
-    /* position: relative; */
 }
 
 .card-home img{
     height:100px;
     margin-top:-60px;
     border-radius: 100px;
+    transition: all 0.2s ease-in-out;
+}
+
+.card-home img:hover{
+    transform: translateY(-10px);
     box-shadow: 0 3px 5px var(--yellow);
+
 }
 
 .card-home p{

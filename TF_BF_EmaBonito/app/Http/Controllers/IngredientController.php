@@ -85,18 +85,18 @@ class IngredientController extends Controller
      */
     public function update(Request $request)
     {
-        $input = $request->all();
+        // $input = $request->all();
         
-        Ingredient::create($input);
+        // Ingredient::create($input);
 
-        $recipe = DB::table('recipes')->latest('created_at')->first();   
-        $ingredients = DB::table('ingredients')->where('recipe_id', $recipe->id)->get();
+        // $recipe = DB::table('recipes')->where('recipe_id', $recipe)->get();
+        // $ingredients = DB::table('ingredients')->where('recipe_id', $recipe->id)->get();
      
 
-        return view('pages.editIngredients',[
-            'recipe_id'   => $recipe -> id,
-            'ingredients' => $ingredients
-        ]);
+        // return view('pages.editIngredients',[
+        //     'recipe_id'   => $recipe -> id,
+        //     'ingredients' => $ingredients
+        // ]);
     }
 
     /**
@@ -106,7 +106,15 @@ class IngredientController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Ingredient $ingredient)
-    {
-        //
+    {         
+        // Ingredient::find($ingredient->id)->delete();
+
+        // $recipe = DB::table('recipes')->get();   
+        // $ingredients = DB::table('ingredients')->where('recipe_id', $recipe->id)->get();
+     
+        // return view('pages.editIngredients',[
+        //     'recipe_id'   => $recipe -> id,
+        //     'ingredients' => $ingredients
+        // ]);   
     }
 }

@@ -36,10 +36,29 @@
     <div class="form-show-preview">
 
         @foreach ($ingredients as $ingredient)
-            <div class="item-box">
-                <p>{{$ingredient->ingredient}}</p>
-                <button type="submit" class="btn-delete">X</button>
-            </div>
+        <form class="item-box" action="{{url('home/ingredient/'. $ingredient->id)}}" method="POST">
+            @csrf
+            @method('DELETE')
+            <p>{{$ingredient->ingredient}}</p>
+            
+            <input value="{{$recipe}}" 
+             type="hidden"
+             id="recipe_id" 
+             name="recipe_id" 
+             autocomplete="{{$recipe}}"
+             class="form-control"
+             @error('recipe_id') is-invalid @enderror">
+
+             <input value="{{$ingredient->id}}" 
+             type="hidden"
+             id="ingredient_id" 
+             name="ingredient_id" 
+             autocomplete="{{$ingredient->id}}"
+             class="form-control"
+             @error('ingredient_id') is-invalid @enderror">
+
+           <button type="submit" class="btn-delete">X</button>
+        </form>
         @endforeach
     </div>
 
